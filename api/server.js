@@ -1,4 +1,4 @@
-// api/insert.js
+/* // api/insert.js
 
 const { Pool } = require('pg');
 const { v4: uuidv4 } = require('uuid');
@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
   const pmeId = uuidv4();
 
   try {
-    const getId = await pool.query(`
+    const getId = await pool.query(` 
       SELECT id
       FROM "empresas"
       WHERE integrador = false 
@@ -41,4 +41,25 @@ module.exports = async (req, res) => {
     console.error('Erro ao inserir dados:', err);
     res.status(500).json({ error: 'Erro ao inserir dados' });
   }
-};
+}; */
+
+
+const express = require('express');
+require('dotenv').config();
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+
+// Middleware
+app.use(express.json());
+
+// Rota de exemplo
+app.get('/api/hello', (req, res) => {
+  res.send('Hello, world!');
+});
+
+// Inicializa o servidor
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
