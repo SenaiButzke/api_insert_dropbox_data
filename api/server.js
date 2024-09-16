@@ -43,23 +43,6 @@ module.exports = async (req, res) => {
   }
 }; */
 
-
-const express = require('express');
-require('dotenv').config();
-
-const app = express();
-const port = process.env.PORT || 3000;
-
-
-// Middleware
-app.use(express.json());
-
-// Rota de exemplo
-app.get('/api/hello', (req, res) => {
-  res.send('Hello, world!');
-});
-
-// Inicializa o servidor
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+module.exports = (req, res) => {
+  res.status(200).json({ message: 'Hello, world!' });
+};

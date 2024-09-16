@@ -1,14 +1,9 @@
-{
-    "name": "my-node-api",
+
+
+  {
+    "name": "my-serverless-function",
     "version": "1.0.0",
-    "main": "api/index.js",
     "scripts": {
-      "start": "node api/index.js"
-    },
-    "dependencies": {
-      "express": "^4.17.3",
-      "pg": "^8.7.1",
-      "uuid": "^8.3.2",
-      "dotenv": "^10.0.0"
+      "start": "node api/server.js"
     }
   }
