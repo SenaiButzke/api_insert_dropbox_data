@@ -43,6 +43,6 @@ module.exports = async (req, res) => {
   }
 }; */
 
-module.exports = (req, res) => {
-  res.status(200).json({ message: 'Hello, world!' });
-};
+export default function handler(req, res) {
+  res.status(200).send('hello world');
+}
