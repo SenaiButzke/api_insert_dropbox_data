@@ -2,7 +2,8 @@
     "name": "my-serverless-function",
     "version": "1.0.0",
     "scripts": {
-        "start": "node api/server.js"
+        "start": "node api/server.js",
+        "dev": "node api/server.js"
     },
     "dependencies": {
         "dotenv": "^16.4.5",
