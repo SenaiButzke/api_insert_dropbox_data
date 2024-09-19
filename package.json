@@ -1,9 +1,10 @@
-
-
-  {
+{
     "name": "my-serverless-function",
     "version": "1.0.0",
     "scripts": {
-      "start": "node api/server.js"
+        "start": "node api/server.js"
+    },
+    "dependencies": {
+        "express": "^4.21.0"
     }
-  }
+}
