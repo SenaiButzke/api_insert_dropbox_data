@@ -2,6 +2,7 @@
 function insertOnDatabase(body) {
     try {
   
+      console.log(body)
       var url = 'https://api-insert-dropbox-data.vercel.app/insert';
       
       var headers = {

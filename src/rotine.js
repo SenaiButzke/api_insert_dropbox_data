@@ -118,6 +118,7 @@ function getSheetData(fileId) {
 }
 
 function runScript() {
+	console.log("Aqui entrou")
   var accessToken = getToken();
   var responseArquivos = getAllDropboxFiles(accessToken);
   if (responseArquivos.status == 400) {
@@ -144,6 +145,7 @@ function runScript() {
       dataSheet.data.forEach((element) => {
         // console.log(element)
         element.empresa = empresa
+				console.log("empresa: " + empresa)
         insertOnDatabase(element)
       });
 

@@ -60,6 +60,8 @@ app.post('/insert', async (req, res) => {
     naoConformidade,
    } = req.body;
 
+   console.log(req.body)
+
   const { v4: uuidv4 } = require('uuid');
   const pmeId = uuidv4();
 
