@@ -125,10 +125,6 @@ function runScript() {
   var accessToken = getToken();
   var responseArquivos = getAllDropboxFiles(accessToken);
   if (responseArquivos.status == 400) {
-    var refreshToken = getRefreshToken()
-    var response = getTokenFromRefresh(refreshToken)
-    accessToken = response.accessToken
-    saveToken(response.accessToken)
     responseArquivos = getAllDropboxFiles(accessToken)
     status = responseArquivos.status
   }
@@ -232,30 +228,12 @@ function getDataFromSheet(data) {
 
 
 
-
-function saveToken(token) {
-	var scriptProperties = PropertiesService.getScriptProperties();
-	scriptProperties.setProperty('ACCESS_TOKEN', token);
-}
-
 function getToken() {
 	return process.env.REFRESH_TOKEN
-	var scriptProperties = PropertiesService.getScriptProperties();
-	var token = scriptProperties.getProperty('ACCESS_TOKEN');
-	return token;
+
 }
 
-function saveRefreshToken(token) {
-	var scriptProperties = PropertiesService.getScriptProperties();
-	scriptProperties.setProperty('REFRESH_ACCESS_TOKEN', token);
-}
 
-function getRefreshToken() {
-	var scriptProperties = PropertiesService.getScriptProperties();
-	var token = scriptProperties.getProperty('REFRESH_ACCESS_TOKEN');
-	Logger.log(token)
-	return token;
-}
 
 
 
