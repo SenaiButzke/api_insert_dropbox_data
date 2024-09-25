@@ -1,4 +1,7 @@
 const path = '/teste';
+const insertOnDatabase = require('./teste');
+const env = require('dotenv').config();
+
 
 function getAllDropboxFiles(accessToken) {
   try {
@@ -225,3 +228,36 @@ function getDataFromSheet(data) {
 
   return { data: resultArray, typeSheet: typeSheet };
 }
+
+
+
+
+
+function saveToken(token) {
+	var scriptProperties = PropertiesService.getScriptProperties();
+	scriptProperties.setProperty('ACCESS_TOKEN', token);
+}
+
+function getToken() {
+	return process.env.REFRESH_TOKEN
+	var scriptProperties = PropertiesService.getScriptProperties();
+	var token = scriptProperties.getProperty('ACCESS_TOKEN');
+	return token;
+}
+
+function saveRefreshToken(token) {
+	var scriptProperties = PropertiesService.getScriptProperties();
+	scriptProperties.setProperty('REFRESH_ACCESS_TOKEN', token);
+}
+
+function getRefreshToken() {
+	var scriptProperties = PropertiesService.getScriptProperties();
+	var token = scriptProperties.getProperty('REFRESH_ACCESS_TOKEN');
+	Logger.log(token)
+	return token;
+}
+
+
+
+
+export default runScript;

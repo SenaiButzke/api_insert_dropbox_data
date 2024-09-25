@@ -27,3 +27,5 @@ function insertOnDatabase(body) {
       Logger.log('Error removing file: ' + error.toString());
     }
   }
+
+  export default insertOnDatabase;

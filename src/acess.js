@@ -1,4 +1,4 @@
-function saveToken(token) {
+/* function saveToken(token) {
 	var scriptProperties = PropertiesService.getScriptProperties();
 	scriptProperties.setProperty('ACCESS_TOKEN', token);
 }
@@ -20,3 +20,4 @@ function getRefreshToken() {
 	Logger.log(token)
 	return token;
 }
+ */
