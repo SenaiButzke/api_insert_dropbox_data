@@ -260,4 +260,4 @@ function getRefreshToken() {
 
 
 
-export default runScript;
+export default runScript();

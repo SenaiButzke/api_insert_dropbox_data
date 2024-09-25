@@ -28,4 +28,4 @@ function insertOnDatabase(body) {
     }
   }
 
-  export default insertOnDatabase;
+  export default insertOnDatabase();
