@@ -31,6 +31,10 @@ pool.connect()
     process.exit(1); 
   });
 
+app.post('/start', async(req, res)=> {  
+  runScript()
+})
+
 app.post('/insert', async (req, res) => {
   const { empresa, 
     dataImportacao,
