@@ -3,7 +3,7 @@ const express = require('express');
 const { Pool } = require('pg');
 const bodyParser = require('body-parser');
 const env = require('dotenv').config();
-const runScript = require('./rotine');
+import runScript from './rotine.js';
 
 const app = express();
 const port = 3006;
