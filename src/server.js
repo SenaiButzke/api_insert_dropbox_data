@@ -31,8 +31,14 @@ pool.connect()
     process.exit(1); 
   });
 
-app.post('/start', async(req, res)=> {  
-  runScript()
+app.post('/start', async(req, res)=> { 
+  try{ 
+    runScript()
+    res.status(200).json();
+  } catch (err) {
+    console.error('Erro ao inserir dados:', err);
+    res.status(500).json({ error: 'Erro ao inserir dados' });
+  }
 })
 
 app.post('/insert', async (req, res) => {
