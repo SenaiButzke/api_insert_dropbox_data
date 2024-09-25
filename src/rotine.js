@@ -126,7 +126,6 @@ function runScript() {
   var responseArquivos = getAllDropboxFiles(accessToken);
   if (responseArquivos.status == 400) {
     responseArquivos = getAllDropboxFiles(accessToken)
-    status = responseArquivos.status
   }
   var filesList = responseArquivos.data
   for (var i = 0; i < filesList.length; i++) {
