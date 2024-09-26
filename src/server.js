@@ -32,15 +32,46 @@ pool.connect()
     process.exit(1); 
   });
 
-app.post('/start', async(req, res)=> { 
-  try{ 
-    runScript()
-    res.status(200).json();
+app.post('/alarm', async(req, res)=> { 
+  const { 
+    alarm,
+   } = req.body;
+
+   console.log(req.body)
+
+  const { v4: uuidv4 } = require('uuid');
+  const alarmId = uuidv4();
+
+  try {
+      /* const getId = await pool.query(`
+        SELECT
+            id
+        FROM
+            "empresas"
+        WHERE
+            integrador = false 
+        AND
+            "nomeFantasia" = $1
+        AND
+            ativo = true;
+        `,[empresa])
+ */
+      const result = await pool.query(
+        `INSERT INTO "dadosAlarm"(
+            id,
+            "alarm,
+          ) VALUES($1, $2) RETURNING *`,
+        [
+            pmeId,
+            alarm,
+        ]
+      );
+    res.status(201).json(result.rows[0]);
   } catch (err) {
     console.error('Erro ao inserir dados:', err);
     res.status(500).json({ error: 'Erro ao inserir dados' });
   }
-})
+});
 
 app.post('/insert', async (req, res) => {
   const { empresa, 
