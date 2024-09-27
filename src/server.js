@@ -34,7 +34,12 @@ pool.connect()
 
 app.post('/alarm', async(req, res)=> { 
   const { 
-    alarm,
+    source,
+    timestamp,
+    cause,
+    causeValue,
+    effect,
+    effectValue
    } = req.body;
 
    console.log(req.body)
@@ -43,7 +48,7 @@ app.post('/alarm', async(req, res)=> {
   const alarmId = uuidv4();
 
   try {
-      /* const getId = await pool.query(`
+      const getId = await pool.query(`
         SELECT
             id
         FROM
@@ -55,15 +60,27 @@ app.post('/alarm', async(req, res)=> {
         AND
             ativo = true;
         `,[empresa])
- */
+
       const result = await pool.query(
-        `INSERT INTO "dadosAlarm"(
+        `INSERT INTO "alarmes"(
             id,
-            "alarm,
-          ) VALUES($1, $2) RETURNING *`,
+            empresa,
+            source,
+            timestamp,
+            cause,
+            "causeValue",
+            effect
+            "effectValue",
+          ) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
         [
             pmeId,
-            alarm,
+            getId,
+            source,
+            timestamp,
+            cause,
+            Number(causeValue),
+            effect,
+            Number(effectValue)
         ]
       );
     res.status(201).json(result.rows[0]);
