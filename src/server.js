@@ -73,7 +73,7 @@ app.post('/alarm', async(req, res)=> {
             causeValue,
             effect
             effectValue,
-          ) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+          ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
         [
             alarmId,
             getId,
@@ -83,7 +83,7 @@ app.post('/alarm', async(req, res)=> {
             cause,
             Number(causeValue),
             effect,
-            effectValue
+            effectValue,
         ]
       );
     res.status(201).json(result.rows[0]);
