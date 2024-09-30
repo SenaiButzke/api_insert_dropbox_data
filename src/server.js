@@ -43,10 +43,13 @@ app.post('/alarm', async(req, res)=> {
     effectValue
    } = req.body;
 
-   console.log(req.body)
+   
 
   const { v4: uuidv4 } = require('uuid');
   const alarmId = uuidv4();
+
+  console.log(alarmId)
+  console.log(req.body)
 
   try {
       const getId = await pool.query(`
