@@ -65,14 +65,14 @@ app.post('/alarm', async(req, res)=> {
       const result = await pool.query(
         `INSERT INTO "alarm"(
             id,
-            empresa,
+            idempresa,
             source,
             timestamp,
             priority,
             cause,
-            causeValue,
+            causevalue,
             effect
-            effectValue,
+            effectvalue,
           ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
         [
             alarmId,
