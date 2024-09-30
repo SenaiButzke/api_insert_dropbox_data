@@ -71,7 +71,7 @@ app.post('/alarm', async(req, res)=> {
             priority,
             cause,
             causeValue,
-            effect
+            effect,
             effectValue,
           ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
         [
@@ -89,7 +89,7 @@ app.post('/alarm', async(req, res)=> {
     res.status(201).json(result.rows[0]);
   } catch (err) {
     console.error('Erro ao inserir dados:', err);
-    res.status(500).json({ error: 'Erro ao inserir dados' });
+    res.status(500).json({ error: 'Erro ao inserir dados de alarme' });
   }
 });
 
