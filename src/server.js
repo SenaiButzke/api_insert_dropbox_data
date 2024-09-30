@@ -70,9 +70,9 @@ app.post('/alarm', async(req, res)=> {
             timestamp,
             priority,
             cause,
-            causeValue,
+            "causeValue",
             effect,
-            effectValue
+            "effectValue"
           ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
         [
             alarmId,
