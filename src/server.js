@@ -63,9 +63,9 @@ app.post('/alarm', async(req, res)=> {
         `,[empresa])
 
       const result = await pool.query(
-        `INSERT INTO "alarm"(
+        `INSERT INTO "alarmes"(
             id,
-            idempresa,
+            empresa,
             source,
             timestamp,
             priority,
