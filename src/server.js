@@ -33,8 +33,10 @@ pool.connect()
 
 app.post('/alarm', async(req, res)=> { 
   const { 
+    empresa,
     source,
     timestamp,
+    priority,
     cause,
     causeValue,
     effect,
@@ -66,6 +68,7 @@ app.post('/alarm', async(req, res)=> {
             empresa,
             source,
             timestamp,
+            priority,
             cause,
             "causeValue",
             effect
@@ -76,10 +79,11 @@ app.post('/alarm', async(req, res)=> {
             getId,
             source,
             timestamp,
+            Number(priority),
             cause,
             Number(causeValue),
             effect,
-            Number(effectValue)
+            effectValue
         ]
       );
     res.status(201).json(result.rows[0]);
