@@ -158,7 +158,7 @@ app.post('/insert', async (req, res) => {
             dataImportacao,
             parseFloat(tensaoEletrica ?? 0).toFixed(2),
             parseFloat(correnteEletrica ?? 0).toFixed(2),
-            parseFloat(frequencia ?? 0).toFixed(2),,
+            parseFloat(frequencia ?? 0).toFixed(2),
             parseFloat(fatorPotencia ?? 0).toFixed(2),
             parseFloat(harmonicas ?? 0).toFixed(2),
             parseFloat(energiaAtiva ?? 0).toFixed(2),
