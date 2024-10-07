@@ -32,7 +32,7 @@ pool.connect()
   });
 
 app.post('/alarm', async(req, res)=> { 
-  let { 
+  const { 
     empresa,
     source,
     timestamp,
@@ -43,14 +43,11 @@ app.post('/alarm', async(req, res)=> {
     effectValue
    } = req.body;
 
-   priority = (priority ?? 0).toFixed(2)
-   causeValue = (causeValue ?? 0).toFixed(2)
+   const _priority = (priority ?? 0).toFixed(2)
+   const _causeValue = (causeValue ?? 0).toFixed(2)
 
   const { v4: uuidv4 } = require('uuid');
   const alarmId = uuidv4();
-
-  console.log(alarmId)
-  console.log(req.body)
 
   try {
       const getId = await pool.query(`
@@ -83,9 +80,9 @@ app.post('/alarm', async(req, res)=> {
             getId.rows[0].id,
             source,
             timestamp,
-            (priority ?? 0).toFixed(2),
+            _priority,
             cause,
-            (causeValue ?? 0).toFixed(2),
+            _causeValue,
             effect,
             effectValue,
         ]
@@ -98,7 +95,7 @@ app.post('/alarm', async(req, res)=> {
 });
 
 app.post('/insert', async (req, res) => {
-  let { empresa, 
+  const { empresa, 
     dataImportacao,
     tensaoEletrica,
     correnteEletrica,
@@ -121,18 +118,18 @@ app.post('/insert', async (req, res) => {
   const { v4: uuidv4 } = require('uuid');
   const pmeId = uuidv4();
 
-  tensaoEletrica= (tensaoEletrica ?? 0).toFixed(2)
-  correnteEletrica = (correnteEletrica ?? 0).toFixed(2)
-  frequencia = (frequencia ?? 0).toFixed(2)
-  fatorPotencia = (fatorPotencia ?? 0).toFixed(2)
-  harmonicas = (harmonicas ?? 0).toFixed(2)
-  energiaAtiva = (energiaAtiva ?? 0).toFixed(2)
-  energiaReativa = (energiaReativa ?? 0).toFixed(2)
-  energiaAparente = (energiaAparente ?? 0).toFixed(2)
-  energiaInjetada = (energiaInjetada ?? 0).toFixed(2)
-  demandaAtiva = (demandaAtiva ?? 0).toFixed(2)
-  demandaReativa = (demandaReativa ?? 0).toFixed(2)
-  demandaAparente = (demandaAparente ?? 0).toFixed(2)
+  const _tensaoEletrica= (tensaoEletrica ?? 0).toFixed(2)
+  const _correnteEletrica = (correnteEletrica ?? 0).toFixed(2)
+  const _frequencia = (frequencia ?? 0).toFixed(2)
+  const _fatorPotencia = (fatorPotencia ?? 0).toFixed(2)
+  const _harmonicas = (harmonicas ?? 0).toFixed(2)
+  const _energiaAtiva = (energiaAtiva ?? 0).toFixed(2)
+  const _energiaReativa = (energiaReativa ?? 0).toFixed(2)
+  const _energiaAparente = (energiaAparente ?? 0).toFixed(2)
+  const _energiaInjetada = (energiaInjetada ?? 0).toFixed(2)
+  const _demandaAtiva = (demandaAtiva ?? 0).toFixed(2)
+  const _demandaReativa = (demandaReativa ?? 0).toFixed(2)
+  const _demandaAparente = (demandaAparente ?? 0).toFixed(2)
 
   try {
       const getId = await pool.query(`
@@ -170,18 +167,18 @@ app.post('/insert', async (req, res) => {
         [
             pmeId,
             dataImportacao,
-            tensaoEletrica,
-            correnteEletrica,
-            frequencia,
-            fatorPotencia,
-            harmonicas,
-            energiaAtiva,
-            energiaReativa,
-            energiaAparente,
-            energiaInjetada,
-            demandaAtiva,
-            demandaReativa,
-            demandaAparente,
+            _tensaoEletrica,
+            _correnteEletrica,
+            _frequencia,
+            _fatorPotencia,
+            _harmonicas,
+            _energiaAtiva,
+            _energiaReativa,
+            _energiaAparente,
+            _energiaInjetada,
+            _demandaAtiva,
+            _demandaReativa,
+            _demandaAparente,
             alarmes,
             naoConformidade,
             getId.rows[0].id,
