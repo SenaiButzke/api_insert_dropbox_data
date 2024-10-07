@@ -120,7 +120,7 @@ app.post('/insert', async (req, res) => {
   const { v4: uuidv4 } = require('uuid');
   const pmeId = uuidv4();
 
-  tensaoEletrica= tensaoEletrica.toFixed(2),
+  tensaoEletrica= (tensaoEletrica ?? 0).toFixed(2),
   correnteEletrica = (correnteEletrica ?? 0).toFixed(2),
   frequencia = (frequencia ?? 0).toFixed(2),
   fatorPotencia = (fatorPotencia ?? 0).toFixed(2),
