@@ -47,8 +47,6 @@ app.post('/alarm', async(req, res)=> {
   const alarmId = uuidv4();
 
   try {
-      const _priority = (priority ?? 0).toFixed(2)
-      const _causeValue = (causeValue ?? 0).toFixed(2)
       
       const getId = await pool.query(`
         SELECT
@@ -80,9 +78,9 @@ app.post('/alarm', async(req, res)=> {
             getId.rows[0].id,
             source,
             timestamp,
-            _priority,
+            priority,
             cause,
-            _causeValue,
+            causeValue,
             effect,
             effectValue,
         ]
@@ -120,19 +118,6 @@ app.post('/insert', async (req, res) => {
 
   try {
 
-      const _tensaoEletrica= (tensaoEletrica ?? 0).toFixed(2)
-      const _correnteEletrica = (correnteEletrica ?? 0).toFixed(2)
-      const _frequencia = (frequencia ?? 0).toFixed(2)
-      const _fatorPotencia = (fatorPotencia ?? 0).toFixed(2)
-      const _harmonicas = (harmonicas ?? 0).toFixed(2)
-      const _energiaAtiva = (energiaAtiva ?? 0).toFixed(2)
-      const _energiaReativa = (energiaReativa ?? 0).toFixed(2)
-      const _energiaAparente = (energiaAparente ?? 0).toFixed(2)
-      const _energiaInjetada = (energiaInjetada ?? 0).toFixed(2)
-      const _demandaAtiva = (demandaAtiva ?? 0).toFixed(2)
-      const _demandaReativa = (demandaReativa ?? 0).toFixed(2)
-      const _demandaAparente = (demandaAparente ?? 0).toFixed(2)
-
       const getId = await pool.query(`
         SELECT
             id
@@ -168,18 +153,18 @@ app.post('/insert', async (req, res) => {
         [
             pmeId,
             dataImportacao,
-            _tensaoEletrica,
-            _correnteEletrica,
-            _frequencia,
-            _fatorPotencia,
-            _harmonicas,
-            _energiaAtiva,
-            _energiaReativa,
-            _energiaAparente,
-            _energiaInjetada,
-            _demandaAtiva,
-            _demandaReativa,
-            _demandaAparente,
+            tensaoEletrica,
+            correnteEletrica,
+            frequencia,
+            fatorPotencia,
+            harmonicas,
+            energiaAtiva,
+            energiaReativa,
+            energiaAparente,
+            energiaInjetada,
+            demandaAtiva,
+            demandaReativa,
+            demandaAparente,
             alarmes,
             naoConformidade,
             getId.rows[0].id,
