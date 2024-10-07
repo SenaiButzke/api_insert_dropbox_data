@@ -32,7 +32,7 @@ pool.connect()
   });
 
 app.post('/alarm', async(req, res)=> { 
-  const { 
+  let { 
     empresa,
     source,
     timestamp,
@@ -43,7 +43,8 @@ app.post('/alarm', async(req, res)=> {
     effectValue
    } = req.body;
 
-   
+   priority = (priority ?? 0).toFixed(2)
+   causeValue = (causeValue ?? 0).toFixed(2)
 
   const { v4: uuidv4 } = require('uuid');
   const alarmId = uuidv4();
@@ -169,18 +170,18 @@ app.post('/insert', async (req, res) => {
         [
             pmeId,
             dataImportacao,
-            tensaoEletrica.toFixed(2),
-            (correnteEletrica ?? 0).toFixed(2),
-            (frequencia ?? 0).toFixed(2),
-            (fatorPotencia ?? 0).toFixed(2),
-            (harmonicas ?? 0).toFixed(2),
-            (energiaAtiva ?? 0).toFixed(2),
-            (energiaReativa ?? 0).toFixed(2),
-            (energiaAparente ?? 0).toFixed(2),
-            (energiaInjetada ?? 0).toFixed(2),
-            (demandaAtiva ?? 0).toFixed(2),
-            (demandaReativa ?? 0).toFixed(2),
-            (demandaAparente ?? 0).toFixed(2),
+            tensaoEletrica,
+            correnteEletrica,
+            frequencia,
+            fatorPotencia,
+            harmonicas,
+            energiaAtiva,
+            energiaReativa,
+            energiaAparente,
+            energiaInjetada,
+            demandaAtiva,
+            demandaReativa,
+            demandaAparente,
             alarmes,
             naoConformidade,
             getId.rows[0].id,
