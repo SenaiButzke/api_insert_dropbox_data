@@ -97,7 +97,7 @@ app.post('/alarm', async(req, res)=> {
 });
 
 app.post('/insert', async (req, res) => {
-  const { empresa, 
+  let { empresa, 
     dataImportacao,
     tensaoEletrica,
     correnteEletrica,
