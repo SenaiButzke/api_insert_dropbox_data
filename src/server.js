@@ -120,22 +120,18 @@ app.post('/insert', async (req, res) => {
   const { v4: uuidv4 } = require('uuid');
   const pmeId = uuidv4();
 
-  tensaoEletrica= (tensaoEletrica ?? 0).toFixed(2),
-  correnteEletrica = (correnteEletrica ?? 0).toFixed(2),
-  frequencia = (frequencia ?? 0).toFixed(2),
-  fatorPotencia = (fatorPotencia ?? 0).toFixed(2),
-  harmonicas = (harmonicas ?? 0).toFixed(2),
-  energiaAtiva = (energiaAtiva ?? 0).toFixed(2),
-  energiaReativa = (energiaReativa ?? 0).toFixed(2),
-  energiaAparente = (energiaAparente ?? 0).toFixed(2),
-  energiaInjetada = (energiaInjetada ?? 0).toFixed(2),
-  demandaAtiva = (demandaAtiva ?? 0).toFixed(2),
-  demandaReativa = (demandaReativa ?? 0).toFixed(2),
-  demandaAparente = (demandaAparente ?? 0).toFixed(2),
-
-  console.log(tensaoEletrica)
-  console.log(tensaoEletrica.toFixed(2))
-  console.log(parseFloat(tensaoEletrica))
+  tensaoEletrica= (tensaoEletrica ?? 0).toFixed(2)
+  correnteEletrica = (correnteEletrica ?? 0).toFixed(2)
+  frequencia = (frequencia ?? 0).toFixed(2)
+  fatorPotencia = (fatorPotencia ?? 0).toFixed(2)
+  harmonicas = (harmonicas ?? 0).toFixed(2)
+  energiaAtiva = (energiaAtiva ?? 0).toFixed(2)
+  energiaReativa = (energiaReativa ?? 0).toFixed(2)
+  energiaAparente = (energiaAparente ?? 0).toFixed(2)
+  energiaInjetada = (energiaInjetada ?? 0).toFixed(2)
+  demandaAtiva = (demandaAtiva ?? 0).toFixed(2)
+  demandaReativa = (demandaReativa ?? 0).toFixed(2)
+  demandaAparente = (demandaAparente ?? 0).toFixed(2)
 
   try {
       const getId = await pool.query(`
