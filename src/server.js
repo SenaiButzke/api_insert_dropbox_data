@@ -43,13 +43,13 @@ app.post('/alarm', async(req, res)=> {
     effectValue
    } = req.body;
 
-   const _priority = (priority ?? 0).toFixed(2)
-   const _causeValue = (causeValue ?? 0).toFixed(2)
-
   const { v4: uuidv4 } = require('uuid');
   const alarmId = uuidv4();
 
   try {
+      const _priority = (priority ?? 0).toFixed(2)
+      const _causeValue = (causeValue ?? 0).toFixed(2)
+      
       const getId = await pool.query(`
         SELECT
             id
@@ -118,20 +118,21 @@ app.post('/insert', async (req, res) => {
   const { v4: uuidv4 } = require('uuid');
   const pmeId = uuidv4();
 
-  const _tensaoEletrica= (tensaoEletrica ?? 0).toFixed(2)
-  const _correnteEletrica = (correnteEletrica ?? 0).toFixed(2)
-  const _frequencia = (frequencia ?? 0).toFixed(2)
-  const _fatorPotencia = (fatorPotencia ?? 0).toFixed(2)
-  const _harmonicas = (harmonicas ?? 0).toFixed(2)
-  const _energiaAtiva = (energiaAtiva ?? 0).toFixed(2)
-  const _energiaReativa = (energiaReativa ?? 0).toFixed(2)
-  const _energiaAparente = (energiaAparente ?? 0).toFixed(2)
-  const _energiaInjetada = (energiaInjetada ?? 0).toFixed(2)
-  const _demandaAtiva = (demandaAtiva ?? 0).toFixed(2)
-  const _demandaReativa = (demandaReativa ?? 0).toFixed(2)
-  const _demandaAparente = (demandaAparente ?? 0).toFixed(2)
-
   try {
+
+      const _tensaoEletrica= (tensaoEletrica ?? 0).toFixed(2)
+      const _correnteEletrica = (correnteEletrica ?? 0).toFixed(2)
+      const _frequencia = (frequencia ?? 0).toFixed(2)
+      const _fatorPotencia = (fatorPotencia ?? 0).toFixed(2)
+      const _harmonicas = (harmonicas ?? 0).toFixed(2)
+      const _energiaAtiva = (energiaAtiva ?? 0).toFixed(2)
+      const _energiaReativa = (energiaReativa ?? 0).toFixed(2)
+      const _energiaAparente = (energiaAparente ?? 0).toFixed(2)
+      const _energiaInjetada = (energiaInjetada ?? 0).toFixed(2)
+      const _demandaAtiva = (demandaAtiva ?? 0).toFixed(2)
+      const _demandaReativa = (demandaReativa ?? 0).toFixed(2)
+      const _demandaAparente = (demandaAparente ?? 0).toFixed(2)
+
       const getId = await pool.query(`
         SELECT
             id
