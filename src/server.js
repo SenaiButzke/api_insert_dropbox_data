@@ -120,6 +120,10 @@ app.post('/insert', async (req, res) => {
   const { v4: uuidv4 } = require('uuid');
   const pmeId = uuidv4();
 
+  console.log(tensaoEletrica)
+  console.log(tensaoEletrica.toFixed(2))
+  console.log(parseFloat(tensaoEletrica))
+
   try {
       const getId = await pool.query(`
         SELECT
