@@ -131,6 +131,8 @@ app.post('/insert', async (req, res) => {
             ativo = true;
         `,[empresa])
 
+      console.log(dataImportacao)
+
       const result = await pool.query(
         `INSERT INTO "dadosEnergeticos"(
             id,
