@@ -113,6 +113,12 @@ app.post('/insert', async (req, res) => {
 
    console.log(req.body)
 
+  const [date, time] = dataImportacao.split(' ')
+  const [day, month, year] = date.split('/').map(Number)
+  const [hours, minutes, seconds] = time.split(':').map(Number)
+
+  const isoDate = new Date(year, month - 1, day, hours, minutes, seconds)
+
   const { v4: uuidv4 } = require('uuid');
   const pmeId = uuidv4();
 
@@ -154,7 +160,7 @@ app.post('/insert', async (req, res) => {
             empresa) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING *`,
         [
             pmeId,
-            dataImportacao,
+            isoDate,
             tensaoEletrica,
             correnteEletrica,
             frequencia,
